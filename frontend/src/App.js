@@ -9,14 +9,14 @@ const App = () =>{
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() =>{
-    axios.get("http://localhost:3000/api/transactions")
+    axios.get("http://localhost:5001/api/transactions")
       .then(res => setTransactions(res.data))
       .catch(err=> console.log(err))
 
   },[]);
 
   const addTransaction = (transaction) => {
-    axios.post("http://localhost:3000/api/transactions", transaction)
+    axios.post("http://localhost:5001/api/transactions", transaction)
       .then(res => setTransactions([...transactions, res.data]))
       .catch(err => console.log(err))
   }
